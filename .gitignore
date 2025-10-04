@@ -1,0 +1,81 @@
+--- Python Virtual Environments ---
+/venv/
+/.venv/
+/env/
+/.env/
+/activate
+/bin/
+/include/
+/lib/
+/lib64/
+/Scripts/
+
+--- Python Cache & Compiled Files ---
+pycache/
+*.py[cod]
+*$py.class
+
+--- Distribution / Build Artifacts ---
+/build/
+/develop-eggs/
+/dist/
+/downloads/
+/eggs/
+/.eggs/
+/lib/
+/lib64/
+/parts/
+/sdist/
+/var/
+/wheels/
+/share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+*.manifest
+*.spec
+
+--- IDE / Editor Configuration ---
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+PyCharm
+.idea/
+
+Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+--- Testing Artifacts ---
+.pytest_cache/
+.coverage
+.coverage.*
+/htmlcov/
+nosetests.xml
+coverage.xml
+
+--- Secrets & Sensitive Data ---
+.env
+.env
+!/.env.example
+config.local.py
+secrets.yml
+*.pem
+*.key
+
+--- Log Files ---
+Log files are typically machine-specific and can grow very large.
+*.log
+logs/
+
+--- OS-specific files ---
+Common system files that should not be in the repository.
+macOS
+.DS_Store
+
+Windows
+Thumbs.db

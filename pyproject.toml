@@ -1,0 +1,15 @@
+[project]
+name = "supernova"
+version = "0.0.1"
+description = "A Python library to manage Cisco switches."
+readme = "README.md" 
+license = "BSD-3-Clause"
+requires-python = ">=3.8"
+dependencies = [
+    "netmiko>=4.0.0",  # For handling SSH connections
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
