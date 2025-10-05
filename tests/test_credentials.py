@@ -1,16 +1,26 @@
+"""
+Unit tests for the Credentials data class. 
+"""
+
 import unittest
 import os
 import sys
 
+# Modify sys path to ensure that we can load modules
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
 from supernova.models.credentials import Credentials
 from supernova.exceptions import CredentialsNotFoundError
 
 class TestCredentialsModel(unittest.TestCase):
+    """
+    Test suite for the Credentials data class.
 
+    This class contains tests that cover the creation, validation,
+    and secure string representation of Credentials objects.
+    """
     def test_credentials_creation_success(self):
-
+        """Test successful creation of a Credentials object with a secret."""
         creds = Credentials(
             username='bob',
             password='steve',
@@ -22,17 +32,17 @@ class TestCredentialsModel(unittest.TestCase):
         self.assertEqual(creds.secret, 'bob2')
 
     def test_credentials_creation_no_secret(self):
-
+        """Test successful creation of a Credentials object without a secret."""
         creds = Credentials(
-            username='testuser',
-            password='password456'
+            username='bob',
+            password='steve'
         )
-        self.assertEqual(creds.username, 'testuser')
-        self.assertEqual(creds.password, 'password456')
+        self.assertEqual(creds.username, 'bob')
+        self.assertEqual(creds.password, 'steve')
         self.assertIsNone(creds.secret, "Secret should default to None")
 
     def test_secure_representation(self):
-
+        """Test the secure string representation when a secret is provided."""
         creds = Credentials(
             username='secure_user',
             password='very_secret_password',
@@ -50,7 +60,7 @@ class TestCredentialsModel(unittest.TestCase):
         self.assertIn("secret='****'", creds_repr)
 
     def test_secure_representation_no_secret(self):
-
+        """Test the secure string representation when no secret is provided."""
         creds = Credentials(
             username='no_secret_user',
             password='a_password'
@@ -64,8 +74,7 @@ class TestCredentialsModel(unittest.TestCase):
         self.assertNotIn("secret='****'", creds_repr)
         
     def test_validation_missing_required_fields(self):
-
-
+        """Test that validation fails for missing username or password."""
         with self.assertRaisesRegex(CredentialsNotFoundError, "Username cannot be empty"):
             Credentials(username=None, password='pw')
 

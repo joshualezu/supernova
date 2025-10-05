@@ -7,7 +7,6 @@ class CredentialsNotFoundError(SupernovaException):
 class ConnectionError(SupernovaException):
     """Raised for issues related to device connection."""
     pass
-
 class CommandExecutionError(SupernovaException):
     """Raised when a command fails to execute properly."""
     pass
